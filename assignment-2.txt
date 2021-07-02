@@ -1,0 +1,9 @@
+Write command to create an nginx container in detached mode with name assignment-2 running on host port 9090 on a custom network named assignment-2
+
+docker network create assignment-2
+
+docker container run -v /root/assignment-2/html:/usr/share/nginx/html/ -d --net assignment-2 --publish 9090:80 --name assignment-2 nginx
+docker container logs assignment-2
+
+docker container exec -it assignment-2 /bin/bash
+cat /usr/share/nginx/html/index.html
